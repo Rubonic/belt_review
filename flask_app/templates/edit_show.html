@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show App</title>
+</head>
+<body>
+    <h1>Edit show No. {{ one_show.id }}</h1>
+{% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
+{% if messages %}<!-- check if there are any messages -->
+{% for message in messages %}<!-- loop through the messages -->
+<p>{{message}}</p><!-- display each message in a paragraph tag -->
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+    <form action="/show/update/{{ one_show.id }}" method="post">
+        <p>Color:
+            <input type="text" name="color" value="{{ one_show.color }}">
+        </p>
+        <p>Number of Seats:
+            <input type="number" name="num_of_seats" value="{{ one_show.num_of_seats }}">
+        </p>
+
+        <input type="submit" value="Update show"> 
+        <button><a href="/show/delete/{{ one_show.id }}">Delete show</a></button>
+    </form>
+    <br></br>
+    <button><a href="/dashboard">Dashboard</a></button>
+    <button><a href="/logout">Logout</a></button>
+
+</body>
+</html>
+
+<!-- Step 34: after the h1 (welcome to the edit page) is typed check to see if it works once confirmed go to show controller-->
+<!-- Step 37: type in validations, form, buttons and change h1 to Edit show No. {{ one_show.id }} -see if it works then go to show controller->

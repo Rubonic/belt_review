@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show App</title>
+</head>
+<body>
+    <h1>Here's the Info for show No. {{ one_show.id }}!!!</h1> 
+    <h2>Color: {{ one_show.color }} </h2>
+    <h2>Number of Seats: {{ one_show.num_of_seats }} </h2>
+    <h2>Driver: {{ one_show.chef.first_name }} </h2>
+
+    <button><a href="/dashboard">Dashboard</a></button>
+    <button><a href="/logout">Logout</a></button>
+    
+    {% if session["user.id"] == one_show.chef.id %}
+    <h3>
+        <button><a href="/show/edit/{{ one_show.id }}">Edit show</a></button>
+        <button><a href="/show/delete/{{ one_show.id }}">Delete show</a></button>
+    </h3>
+    {% endif %}
+</body>
+</html>
+
+<!-- Step 20: once the h1 is typed check if it works-then go back to show_controller->
+<!-- Step 28: type in the 3 (h2)s--once typed check if it works>
+<!-- Step 29: type of buttons for dashboard and logout once typed check if it works
+<!-- Step 30: go to dashboard html to input edit and delete functions -->
+<!-- Step 47: copy the seen features and edit/delete button from dashboard html -->

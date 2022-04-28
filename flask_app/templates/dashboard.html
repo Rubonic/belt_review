@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+</head>
+<body>
+    <h3 class="text-center">Welcome {{user.first_name}} {{user.last_name}}!!!</h3>
+    <h1>Need A Ride?</h1>
+    <!-- Step 16: type this -->
+    <!-- Step 17: make whatever item of the item a hyperlink then check if it works once it works go to show_controller-->
+    {% for show in all_shows %}
+    <h3>Color: <a href="/show/show/{{ show.id }}">{{ show.color }}</a></h3>
+    <h3>Name: {{ show.name }}</h3>
+    <h3>network: {{ show.chef.network }}</h3>
+    <h3>Release Date: {{ show.chef.time }}</h3>
+    {% if user.id == show.chef.id %}
+    <h3>
+        <button><a href="/show/edit/{{ show.id }}">Edit show</a></button>
+        <button><a href="/show/delete/{{ show.id }}">Delete show</a></button>
+    </h3>
+    {% endif %}
+    <h3>_______________________________</h3>
+    {% endfor %}
+    
+<!-- Step 1: creating a button to add a new item in the database 
+<!-- Step 2: create a new controller and start coding in it-> -->
+    <button><a href="/show/new">Add a New show</a></button> 
+    <br></br>
+    <button><a href="/logout" class="btn btn-info">Logout</a></button>
+</body>
+</html>
+
+<!-- Step 31: Check if the edit button works -once confirmed go to show controller->
+<!-- Step 43: create delete button -check if works- then go to show controller>
+<!-- Step 46:  -add these if statements -line 19 and 24 once confirmed go to show html>

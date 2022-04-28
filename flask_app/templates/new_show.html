@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show App</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
+{% if messages %}<!-- check if there are any messages -->
+{% for message in messages %}<!-- loop through the messages -->
+<p>{{message}}</p><!-- display each message in a paragraph tag -->
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+    <h1>Create a New show!</h1>
+    <form action="/show/create" method="post">
+        <p>Title:
+            <input type="text" name="name">
+        </p>
+        <p>Network:
+            <input type="number" name="network">
+        </p>
+        <p>Release Date:
+            <input type="number" name="time">
+        </p>
+        <p>Description:
+            <input type="number" name="name">
+        </p>
+
+        <input type="submit" value="Create show">
+    </form>
+
+    <button><a href="/dashboard">Dashboard</a></button>
+    <button><a href="/logout">Logout</a></button>
+</body>
+</html>
+<!-- Step 5: Test out if this displays with h1-then go to the new controller->
+Step 7 : create form/input then add fields with <p>-
+    Step 8: go to show_controller(new controller)
+    Step 9.b.2 put validations code in html check it works->
